@@ -1670,6 +1670,22 @@ try {
   if (filter('') === true) pass('empty location passes (unchanged semantics)');
   else fail('empty location should pass');
 
+  // Case 4b: strict mode holds empty/unknown locations for verification
+  const strictFilter = buildLocationFilter({
+    require_location: true,
+    allow: ['united states', 'us remote'],
+  });
+  if (strictFilter('') === false && strictFilter(null) === false) {
+    pass('require_location rejects empty and non-string locations');
+  } else {
+    fail('require_location should reject unknown locations');
+  }
+  if (strictFilter('Remote') === false && strictFilter('US Remote') === true) {
+    pass('strict mode rejects generic Remote but allows explicit US Remote');
+  } else {
+    fail('strict mode should distinguish generic Remote from US Remote');
+  }
+
   // Case 5: case-insensitivity
   if (filter('BRUSSELS, BELGIUM') === true) pass('case-insensitive match works');
   else fail('case-insensitive match failed');

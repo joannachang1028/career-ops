@@ -211,7 +211,7 @@ Levels are additive — they are executed in order, and results are merged and d
 
 6b. **Filter by Location (Optional)** using `location_filter` from `portals.yml`:
    - If the `location_filter` block is absent, all locations pass (default behavior).
-   - Empty location on a posting → passes (do not penalize missing data).
+   - Empty location on a posting → rejects when `require_location: true`; otherwise passes.
    - Any keyword from `block` present → reject (precedes allow).
    - Empty `allow` → passes (already cleared block).
    - Non-empty `allow` → must match at least one keyword.
