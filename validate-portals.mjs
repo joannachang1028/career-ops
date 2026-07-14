@@ -125,6 +125,9 @@ export async function validatePortalsConfig(config, { providerIds = new Set() } 
       validateKeywordList(config.location_filter.always_allow, 'location_filter.always_allow', errors);
       validateKeywordList(config.location_filter.allow, 'location_filter.allow', errors);
       validateKeywordList(config.location_filter.block, 'location_filter.block', errors);
+      if (config.location_filter.require_location !== undefined && typeof config.location_filter.require_location !== 'boolean') {
+        add(errors, 'location_filter.require_location', 'must be a boolean when set');
+      }
     }
   }
 
