@@ -93,6 +93,7 @@ function buildSnapshot() {
 }
 
 async function cmdList() {
+  await loadDotenvOnce();
   const cfg = await loadPluginConfig(ROOT);
   const overridden = resolveSuccessorIds(ROOT); // ids where an installed successor is active
   const manifests = discoverPlugins(pluginRoots(ROOT), overridden);
@@ -124,6 +125,7 @@ async function cmdRun(args) {
   const id = positional[0];
   if (!id) { console.error('Usage: node plugins.mjs run <id> [hook] [args…] [--dry-run]'); process.exit(1); }
 
+  await loadDotenvOnce();
   const cfg = await loadPluginConfig(ROOT);
   const manifest = discoverPlugins(pluginRoots(ROOT), resolveSuccessorIds(ROOT)).find(m => m.id === id);
   if (!manifest) { console.error(`Unknown plugin "${id}". Run \`node plugins.mjs list\`.`); process.exit(1); }
@@ -149,8 +151,6 @@ async function cmdRun(args) {
   if (!status.configured) { console.error(`Plugin "${id}" is not enabled. Set plugins.${id}.enabled: true in config/plugins.yml.`); process.exit(1); }
   if (status.missingEnv.length) { console.error(`Plugin "${id}" is missing ${status.missingEnv.join(', ')} in .env. See .env.example.`); process.exit(1); }
 
-  await loadDotenvOnce();
-
   if (hook === 'ingest' || hook === 'search') {
     const payload = hook === 'search' ? positional.slice(hookArgStart).join(' ') : undefined;
     if (hook === 'search' && !payload) { console.error(`search needs a query: node plugins.mjs run ${id} search "<query>"`); process.exit(1); }
@@ -168,7 +168,7 @@ async function cmdRun(args) {
 
   if (hook === 'export') {
     const snapshot = buildSnapshot();
-    const results = await runHook('export', snapshot, { root: ROOT, dryRun });
+    const results = await runHook('export', snapshot, { root: ROOT, dryRun, timeoutMs: 300_000 });
     for (const r of results) {
       if (r.ok) console.log(`${r.id} export: pushed ${r.result?.pushed ?? 0} record(s).`);
       else console.log(`${r.id} export: failed — ${r.error}`);

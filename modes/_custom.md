@@ -30,7 +30,9 @@
      - Cap each batch run at 20 listings unless I say otherwise.
      - If a report scores below 6, skip the cover letter. -->
 
-(none yet -- add yours above)
+**CV bullet points must be one line each.** No bullet should wrap to a second line or contain multiple clauses joined by semicolons. Format: action verb + what + metric/outcome. Cut everything that doesn't add a number or a concrete detail. If a bullet can't fit on one line cleanly, split it into two separate bullets or drop the weaker half.
+
+**Notion sync only after I say I applied.** Do not run `node plugins.mjs run notion export` at evaluation time. Do not create or update Notion rows while tracker status is still `Evaluated`. When I confirm I submitted an application, set tracker status to `Applied`, then export — Notion Application Status must be **Applied** (not "In progress"). Downstream tracker updates (`Responded`, `Interview`, etc.) may re-export to refresh Notion.
 
 ## Custom Workflows
 

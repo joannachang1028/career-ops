@@ -6,6 +6,7 @@
   "description": "Mirror your tracker to a Notion database and read records back as job leads.",
   "hooks": ["export", "search"],
   "requiredEnv": ["NOTION_ACCESS_TOKEN", "NOTION_PARENT_PAGE_ID"],
+  "optionalEnv": ["NOTION_APPLICATIONS_DATABASE_ID", "NOTION_APPLICATIONS_DATA_SOURCE_ID", "NOTION_SYNC_START_ID"],
   "allowedHosts": ["api.notion.com"],
   "skill": "skill.md",
   "humanInTheLoop": true,

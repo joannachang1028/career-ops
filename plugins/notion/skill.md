@@ -12,9 +12,12 @@ truth — Notion is an additive mirror.
 
 ## Commands
 
-- `node plugins.mjs run notion export` — push each tracker row (company / role /
-  status / score) to the "Applications" database under your Career Ops page.
-  Add `--dry-run` to preview without writing.
+- `node plugins.mjs run notion export` — push tracker rows that are **Applied or
+  downstream** (not `Evaluated` / `SKIP`) to the "Applications" database under
+  your Career Ops page. Application Status comes from the tracker (`Applied` →
+  Notion **Applied**). Requires per-row metadata in `data/notion-sync.yml`
+  (`industry`, `website`, `location`, `work_arrangement`). Add `--dry-run` to
+  preview without writing.
 - `node plugins.mjs run notion search "<query>"` — return Notion records that
   carry a job URL, matching the query, and append them to the pipeline.
 
@@ -23,6 +26,8 @@ truth — Notion is an additive mirror.
 A "Career Ops" parent page in Notion containing an "Applications" database with
 Company / Role / Status / Score / URL properties, shared with your internal
 integration. Put `NOTION_ACCESS_TOKEN` + `NOTION_PARENT_PAGE_ID` in `.env`.
+To target a specific existing database instead of resolving a child database by
+name, also set `NOTION_APPLICATIONS_DATABASE_ID` to that database page ID.
 
 ## Data it produces
 

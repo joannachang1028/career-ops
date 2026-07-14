@@ -86,4 +86,6 @@ If the final score is >= 4.5, generate a draft of responses for the application 
 
 Record it in `data/applications.md` with all columns including Report and PDF as ✅.
 
+**Do not export to Notion at the end of evaluation.** Rows land in the tracker as `Evaluated` only. When the user later confirms they submitted the application, follow the Notion mirror rules in `modes/tracker.md`: update the local tracker to `Applied` first, then run `node plugins.mjs run notion export` when the Notion plugin is enabled (status **Applied** in Notion).
+
 **If any step fails**, continue with the next ones and mark the failed step as pending in the tracker.

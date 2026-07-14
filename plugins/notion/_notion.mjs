@@ -63,13 +63,14 @@ export function plain(prop) {
  * standalone use. Nothing here reads process.env.
  * @param {{ token: string, parent: string, fetch?: Function }} cfg
  */
-export function createNotionClient({ token, parent, fetch: fetchFn = globalThis.fetch }) {
+export function createNotionClient({ token, parent, applicationsDatabase, applicationsDataSource, fetch: fetchFn = globalThis.fetch }) {
   if (!token) throw new Error('NOTION_ACCESS_TOKEN is not set (.env) — the Notion plugin needs it to read/write.');
   const HEADERS = { Authorization: `Bearer ${token}`, 'Notion-Version': '2025-09-03', 'Content-Type': 'application/json' };
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+  const SLEEP_MS = 100; // ~10 req/s — well within Notion's 3 req/s per integration for personal use
 
   async function api(path, method, body) {
-    await sleep(360); // ~3 req/s
+    await sleep(SLEEP_MS);
     // ctx.fetch throws on non-2xx (its message carries the body); the !r.ok
     // branch below is the fallback when a plain global fetch is injected.
     const r = await fetchFn(`https://api.notion.com/v1/${path}`, { method, headers: HEADERS, body: body ? JSON.stringify(body) : undefined });
@@ -102,6 +103,14 @@ export function createNotionClient({ token, parent, fetch: fetchFn = globalThis.
     return out;
   }
 
+  /** Resolve a database page id to its current primary data source id. */
+  async function resolveDatabase(databaseId) {
+    const db = await api(`databases/${databaseId}`, 'GET');
+    const dataSourceId = db.data_sources?.[0]?.id;
+    if (!dataSourceId) throw new Error('The configured Notion database has no accessible data source. Share the database with the integration and verify its ID.');
+    return dataSourceId;
+  }
+
   async function queryDB(dataSourceId) {
     let cursor, all = [];
     do {
@@ -116,10 +125,12 @@ export function createNotionClient({ token, parent, fetch: fetchFn = globalThis.
     return {
       id: r.id,
       company: plain(r.properties.Company),
-      role: plain(r.properties.Role),
-      status: r.properties.Status?.select?.name || '',
+      role: plain(r.properties.Role || {}),
+      status: r.properties['Application Status']?.status?.name
+           || r.properties.Status?.select?.name
+           || '',
       score: r.properties.Score?.number ?? null,
-      jobUrl: r.properties.URL?.url || '',
+      jobUrl: r.properties['Website/LinkedIn']?.url || r.properties.URL?.url || '',
       url: r.url,
     };
   }
@@ -133,5 +144,5 @@ export function createNotionClient({ token, parent, fetch: fetchFn = globalThis.
     });
   }
 
-  return { api, createPage, resolveDBs, queryDB, findRecords };
+  return { api, createPage, resolveDBs, resolveDatabase, queryDB, findRecords, applicationsDatabase, applicationsDataSource };
 }

@@ -1,0 +1,5 @@
+# Personal plugin activation. Secrets remain in the gitignored root .env file.
+plugins:
+  notion:
+    enabled: true
+

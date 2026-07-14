@@ -1,0 +1,31 @@
+{
+  "lockfileVersion": 1,
+  "plugins": {
+    "notion": {
+      "source": "bundled",
+      "version": "1.0.0",
+      "integrity": "sha256-b3c4766d406c165d82f4f29c5f400ac1466a71add5d915bb47eda300ff368377",
+      "files": {
+        "_notion.mjs": "sha256-1a3ec5410e3513ea0e977caf13692216f3659bfb5b5b64e9f15a42492c3e0d19",
+        "index.mjs": "sha256-27074a0c2082389e685a757b6018be4b006fffa99916881da750efd495f45d80",
+        "manifest.json": "sha256-d0b7c45abbaf62e5464807408df1f2f5e80db18d7eafb446dc347785f691ef6f",
+        "skill.md": "sha256-9a5361fe4ac36809e8d541f5f4f88d2474bb5f9a3b79d0df044bb20e11ab88e8"
+      },
+      "consent": {
+        "hooks": [
+          "export",
+          "search"
+        ],
+        "requiredEnv": [
+          "NOTION_ACCESS_TOKEN",
+          "NOTION_PARENT_PAGE_ID"
+        ],
+        "allowedHosts": [
+          "api.notion.com"
+        ],
+        "skill": true,
+        "allowsLocalhost": false
+      }
+    }
+  }
+}

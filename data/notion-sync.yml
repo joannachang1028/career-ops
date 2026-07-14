@@ -1,0 +1,125 @@
+sync_start_id: 166
+
+applications:
+  "166":
+    industry: [HealthTech]
+    website: https://job-boards.greenhouse.io/heartflowinc/jobs/5994886004
+    location: [CA, Greater Seattle Area]
+    work_arrangement: [Remote]
+    status: Applied
+  "167":
+    industry: [Internet Software]
+    website: https://www.supervity.ai/careers/forward-deployed-ai-engineer
+    location: [United States]
+    work_arrangement: [Hybrid]
+    status: In progress
+  "168":
+    industry: [HealthTech]
+    website: https://jobs.lever.co/aledade/39ea4348-1d97-4bf7-9905-b524c255dae2
+    location: [United States]
+    work_arrangement: [Remote]
+    status: Applied
+  "169":
+    industry: [Internet Software]
+    website: https://job-boards.greenhouse.io/gleanwork/jobs/4651991005
+    location: [United States]
+    work_arrangement: [Remote]
+    status: In progress
+  "170":
+    industry: [Internet Software]
+    website: https://jobs.ashbyhq.com/workos/5e650527-d8dd-413a-9cfb-d7d68143274b
+    location: [United States]
+    work_arrangement: [Remote]
+    status: In progress
+  "171":
+    industry: [HealthTech]
+    website: https://jobs.lever.co/aledade/aa8b4206-7dc9-4106-9c93-1e31502250e1
+    location: [United States]
+    work_arrangement: [Remote]
+    status: No Response
+  "172":
+    industry: [Internet Software]
+    website: https://jobs.ashbyhq.com/cohere/b0bcef37-1d20-414f-aade-c54942d63df9
+    location: [United States]
+    work_arrangement: [Remote]
+    status: Applied
+  "173":
+    industry: [HealthTech]
+    website: https://job-boards.greenhouse.io/layerhealth/jobs/4669168008
+    location: [Boston MA, New York NY]
+    work_arrangement: [Hybrid]
+    status: Applied
+    notion_data_source: d905742a-ded6-8240-a6ad-079af4592d80
+    notion_url: https://app.notion.com/p/3995742aded68145af74f5ac00626b15
+  "174":
+    industry: [biopharmaceutical]
+    website: https://amgen.wd1.myworkdayjobs.com/Careers/job/US---California---Thousand-Oaks/Commercial-Analytics--Senior-Manager_R-248617
+    location: [CA]
+    work_arrangement: [Remote]
+    status: Applied
+  "175":
+    industry: [HealthTech]
+    website: https://jobs.lever.co/aledade/a7680239-7d4d-485f-a322-60aa4e917425
+    location: [United States]
+    work_arrangement: [Remote]
+    status: In progress
+  "176":
+    industry: [HealthTech]
+    website: https://jobs.lever.co/includedhealth/2c09d16b-b315-4241-8cb7-cee46b5d6c04
+    location: [United States]
+    work_arrangement: [Remote]
+    status: In progress
+  "177":
+    industry: [HealthTech]
+    website: https://job-boards.greenhouse.io/coherehealth/jobs/7721791003
+    location: [United States]
+    work_arrangement: [Remote]
+    status: In progress
+  "178":
+    industry: [Internet Software]
+    website: https://sailpoint.wd1.myworkdayjobs.com/SailPoint/job/Remote-Minnesota-USA/Advisory-Solution-Consultant---Healthcare_R013390?source=LinkedIn
+    location: [MN, United States]
+    work_arrangement: [Remote]
+    status: Applied
+  "179":
+    industry: [Internet Software]
+    website: https://careers-americas.icims.com/jobs/25111/solution-consultant,-cloud-platform-development-and-integration/job?iis=LinkedIn&iisn=LinkedIn_Job_Ad&mobile=false&width=1349&height=500&bga=true&needsRedirect=false&jan1offset=-300&jun1offset=-240
+    location: [New York NY, Washington DC, Austin TX]
+    work_arrangement: [Remote]
+    status: In progress
+  "180":
+    industry: [HealthTech]
+    website: https://jobs.ashbyhq.com/tennr/a751f64b-4207-40aa-a225-f5c43ecfecee
+    location: [New York City]
+    work_arrangement: [Hybrid]
+    status: Applied
+  "181":
+    industry: [Internet Software]
+    website: https://jobs.jobvite.com/varonis/job/o9OBzfwR?jr_id=6a552a2e268af95237be9bd8
+    location: [OH]
+    work_arrangement: [Remote]
+    status: In progress
+  "182":
+    industry: [HealthTech]
+    website: https://recruiting.paylocity.com/Recruiting/Jobs/Details/4283153
+    location: [United States]
+    work_arrangement: [Remote]
+    status: In progress
+  "183":
+    industry: [HealthTech]
+    website: https://jobs.ashbyhq.com/tennr/cd79e448-7c02-4ebd-9be7-04c2dc144a35
+    location: [New York City]
+    work_arrangement: [Hybrid]
+    status: Applied
+  "184":
+    industry: [HealthTech]
+    website: https://job-boards.greenhouse.io/komodohealth/jobs/8588487002
+    location: [United States]
+    work_arrangement: [Remote]
+    status: In progress
+  "186":
+    industry: [Medical Devices]
+    website: https://jobs.thermofisher.com/global/en/job/R-01353193/Technical-Sales-Specialist-Life-Science-and-Research-PA-OH-NY?rx_ch=jobpost&rx_id=3dbb6e78-7cbf-11f1-8d04-b3612f9c3189&rx_job=R-01353193_1009_rxr-1&rx_medium=post&rx_source=linkedin
+    location: [PA, OH, NY]
+    work_arrangement: [Remote]
+    status: In progress
